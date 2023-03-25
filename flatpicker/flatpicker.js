@@ -60,6 +60,17 @@ const renderCalendar = () => {
     days += `<div class="next-date">${j}</div>`;
     monthDays.innerHTML = days;
   }
+
+  const elements = document.getElementsByClassName("dayd");
+  const elements2 = document.querySelector('div.date h1');
+  const text = elements2.childNodes[0].textContent;
+
+  for (let index = 0; index < elements.length; index++) {
+    elements[index].addEventListener("click", buttonPressed = e =>{
+      console.log(text);
+      console.log(e.target.id);  // Get ID of Clicked Element
+    });
+  }
 };
 
 document.querySelector(".prev").addEventListener("click", () => {
@@ -74,18 +85,10 @@ document.querySelector(".next").addEventListener("click", () => {
 });
 
 renderCalendar();
-var elements = document.getElementsByClassName("dayd");
-var elements2 = document.querySelector('div.date h1');
-const text = elements2.childNodes[0].textContent;
 
-const buttonPressed = e => {
-    console.log(text);
-    console.log(e.target.id);  // Get ID of Clicked Element
-    
-}
 
-for (let index = 0; index < elements.length; index++) {
-    elements[index].addEventListener("click", buttonPressed);
-    
-}
+
+
+
+
 
