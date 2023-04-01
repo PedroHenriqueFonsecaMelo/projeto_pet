@@ -11,10 +11,10 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-body>header {
-    background: #222;
+body > header {
+    background:#3bc55b ;
     color: white;
-    font-size: 24px;
+    font-size: 35px;
     padding: 20px 0;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -25,30 +25,30 @@ body>header {
     justify-content: center;
 }
 
-body>main {
+body > main {
     background: #fff;
     padding: 0 30px 30px;
 }
 
-body>main .page-title {
-    font-size: 40px;
+body > main .page-title {
+    font-size: 35px;
     padding: 50px 0;
     text-align: center;
 }
 
-body>main .content {
+body > main .content {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-body>main .content section {
+body > main .content section {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
 }
 
-body>main .content aside {
+body > main .content aside {
     min-width: 250px;
 }
 button {
