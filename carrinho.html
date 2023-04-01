@@ -74,8 +74,8 @@
     <header>
         <span>Carrinho de Compras</span>
     </header>
-    <main>
-        <div class="page-title"> Seu Carrrinho</div>
+    <main class>
+        <div class="page-title"> Seu Carrinho</div>
         <div class="content">
             <section>
                 <table>
@@ -89,6 +89,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <div class="container-fluid py-md-1">
                         <tr>
                             <td>
                                 <div class="product">
@@ -112,28 +113,56 @@
                                 <button class="remove"><i class='bx bx-x'></i></button>
                             </td>
                         </tr>
-                        
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="https://picsum.photos/100/120" alt="">
+                                    <div class="info">
+                                        <div class="nome">Nome do produto</div>
+                                        <div class="categoria">categoria</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>R$: 0,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button i class="bx bx-minus"></button>
+                                    <span>1</span>
+                                    <button i class="bx bx-plus"></button>
+                                </div>
+                            </td>
+                            <td>R$: 0,00</td>
+                            <td>
+                                <button class="remove"><i class='bx bx-x'></i></button>
+                            </td>
+                        </tr>
+                    </div>
                     </tbody>
                 </table>
             </section>
             <aside>
+                <div class="container-fluid py-md-1"></div>
                  <div class="box">
-                    <header></header>
+                    <header>Resumo da Compra</header>
                     <div class="info">
                         <div><span>Subtotal</span><span>Valor R$: 0,00</span></div>
                         <div><span>Frete</span><span>Valor R$: 0,00</span></div>
-                        <div><button> Cupom de Desconto</button></div>
+                        <div><button > Cupons de Desconto<i class='bx bx-right-arrow-alt'></i></button></div>
                     </div>
-                    <footer></footer>
+                    <footer> 
+                        <span>Total</span>
+                        <span>R$: 0,00</span>
+                    </footer>
                  </div>
                  <button> Finalizar Compra </button>
+                </div>
             </aside>
         </div>
+    </div>
     </main>
-
-
+    
     <!-- fim do carrinho-->
-    <button type="button" class="btn btn-danger">REMOVER</button>
+
 
 
     <!-- Footer Start -->
