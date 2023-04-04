@@ -31,7 +31,7 @@ body > header {
 
 body > main {
     background: #fff;
-    padding: 0 30px 30px;
+    padding:0 30px 20px;
     border: 2px solid #131312;width: 75vw;
     border-radius: 19px
    
@@ -70,7 +70,7 @@ button {
     border-bottom: 3px solid #eee;
   }
   table thead tr th {
-    text-align: left;
+    text-align:center;
     padding-bottom: 10px;
     text-transform: uppercase;
     color: #666;
@@ -85,7 +85,7 @@ button {
   }
   
   table tbody tr td {
-    padding: 30px 0;
+    padding: 20px 0;
   }
   .product {
     display: -webkit-box;
@@ -116,7 +116,7 @@ button {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    padding: 0 0;
+    padding: 10px 10px;
     -ms-flex-pack: distribute;
         justify-content: space-around;
     -webkit-box-align: center;
@@ -129,7 +129,7 @@ button {
   }
   
   .qtde span {
-    margin: 0 10px;
+    margin: 10px 10px;
   }
   
   .qtde button {
@@ -141,7 +141,7 @@ button {
             align-items: center;
     background: transparent;
     border: 0;
-    padding: 0 10px;
+    padding: 10px 10px;
     font-size: 20px;
     height: 100%;
   }
@@ -197,8 +197,8 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
             justify-content: space-between;
     margin-bottom: 10px;
     color: #555;
@@ -228,8 +228,8 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
             justify-content: space-between;
   }
   
