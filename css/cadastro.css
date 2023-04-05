@@ -64,7 +64,7 @@ h1{
     position: absolute;
     top: 80%;
     left: 5px;
-    transform: translateY(-50%);
+    transform: translateY(-5%);
     color: #666;
     font-size: 5em;
     pointer-events: none;
@@ -89,7 +89,7 @@ input:valid ~ label,
 input[type="email"]:invalid:not(:placeholder-shown) ~ label,
 input[type="email"]:valid ~ label,
 input[type="email"]:focus ~ label{
-    top: -5px;
+    top: -2px;
 }
 
 
@@ -162,19 +162,19 @@ button{
     font-weight: 600;
     
 }
-#save-btn {
+#cadastroButton {
     position: relative;
     /*top: 30px;*/
     width: 310px;
     height: 40px;
     border-radius: 40px;
-    background: #666;
+    background: rgb(250, 250, 250);
     border: none;
     outline: none;
     cursor: pointer;
     font-size: 1em;
     font-weight: 600;
-    left: 126.5px;
+    left: 210px;
 }
 .register{
     font-size: .9em;

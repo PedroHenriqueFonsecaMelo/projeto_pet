@@ -233,7 +233,7 @@ button {
             justify-content: space-between;
   }
   
-  aside > button {
+  #buttonCarrinho {
     border: 0;
     padding: 15px 0;
     color: #474646;
