@@ -13,8 +13,8 @@ body {
 }
 
 body > header {
-    background:#7AB730;
-    color: white;
+    background:#7ab730;
+    color: #646161;
     font-size: 35px;
     padding: 20px 0;
     display: -webkit-box;
@@ -30,9 +30,9 @@ body > header {
 }
 
 body > main {
-    background: #fff;
+    background: #dcdada;
     padding:0 30px 20px;
-    border: 2px solid #131312;width: 75vw;
+    border: 2px solid #666;width: 75vw;
     border-radius: 19px
    
 }
@@ -67,7 +67,7 @@ button {
     border-collapse: collapse;
   }
   table thead tr {
-    border-bottom: 3px solid #eee;
+    border-bottom: 3px solid #666;
   }
   table thead tr th {
     text-align:center;
@@ -179,13 +179,13 @@ button {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     background: #eee;
-    color: #222;
+    color: #666;
   }
   
   aside .box header {
     padding: 15px 20px;
     font-size: 18px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #666;
   }
   
   aside .box .info {
@@ -236,7 +236,7 @@ button {
   aside > button {
     border: 0;
     padding: 15px 0;
-    color: white;
+    color: #474646;
     background: #7AB730;
     display: block;
     width: 100%;
