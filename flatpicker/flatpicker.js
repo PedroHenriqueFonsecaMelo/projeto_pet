@@ -1,4 +1,8 @@
 const date = new Date();
+let elements;
+let elements2;
+let text;
+let dia;
 
 const renderCalendar = () => {
   date.setDate(1);
@@ -61,18 +65,35 @@ const renderCalendar = () => {
     monthDays.innerHTML = days;
   }
 
-  const elements = document.getElementsByClassName("dayd");
-  const elements2 = document.querySelector('div.date h1');
-  const text = elements2.childNodes[0].textContent;
+   elements = document.getElementsByClassName("dayd");
+   elements2 = document.querySelector('div.date h1');
+   text = elements2.childNodes[0].textContent;
 
   for (let index = 0; index < elements.length; index++) {
     elements[index].addEventListener("click", buttonPressed = e =>{
-      console.log(text);
-      console.log(e.target.id);  // Get ID of Clicked Element
+      document.getElementById("dataCalendario").value = text + " " + e.target.id;
+      dia = e.target.id;
+      
     });
   }
 };
+/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 document.querySelector(".prev").addEventListener("click", () => {
   date.setMonth(date.getMonth() - 1);
   renderCalendar();
@@ -86,9 +107,77 @@ document.querySelector(".next").addEventListener("click", () => {
 
 renderCalendar();
 
+  const preco1 = document.getElementById("preco1");
+  const preco2 = document.getElementById("preco2");
+  const preco3 = document.getElementById("preco3");
+  
+    preco1.addEventListener("click", buttonPressed = e =>{
+      str = preco2.innerHTML;
+      var toDate = new Date(date.getFullYear(), date.getMonth(), parseInt(dia));
+      var today = new Date();
 
+      var mySubString = str.substring(
+        str.indexOf("</small>")+8, 
+        str.lastIndexOf("<small")
+      );
 
+      dateDiff(toDate, mySubString,today);
 
+      console.log(mySubString);
+      
+    });
 
+    preco2.addEventListener("click", buttonPressed = e =>{
+      str = preco2.innerHTML;
+      var toDate = new Date(date.getFullYear(), date.getMonth(), parseInt(dia));
+      var today = new Date();
 
+      var mySubString = str.substring(
+        str.indexOf("</small>")+8, 
+        str.lastIndexOf("<small")
+      );
+
+      dateDiff(toDate, mySubString,today);
+      
+      console.log(mySubString);
+      
+    });
+
+    preco3.addEventListener("click", buttonPressed = e =>{
+      str = preco3.innerHTML;
+      var toDate = new Date(date.getFullYear(), date.getMonth(), parseInt(dia));
+      var today = new Date();
+      
+
+      var mySubString = str.substring(
+        str.indexOf("</small>")+8, 
+        str.lastIndexOf("<small")
+      );
+      
+      dateDiff(toDate, mySubString, today);
+      
+      console.log(mySubString);
+      
+    });
+
+  function dateDiff(toDate, mySubString, today) {
+    const diffTime = Math.abs(today - toDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    let str = "Sua modalidade e data dos serviços foi seleciodado, o valor total ficou em  ";
+    document.getElementById("precoTotal").value = "";
+    console.log("today :" + today);
+    console.log("data :" + toDate);
+
+    if (diffDays >= 7) {
+      let fixed = ((parseFloat(mySubString) * diffDays) / 7).toFixed(2);
+      str += fixed;
+      document.getElementById("precoTotal").value = str;
+      
+    } else {
+      let fixed =(parseFloat(mySubString) * diffDays).toFixed(2);
+      str += fixed;
+      document.getElementById("precoTotal").value = str;
+     
+    }
+  }
 
