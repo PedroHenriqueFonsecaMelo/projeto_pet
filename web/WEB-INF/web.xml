@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>cadastroAluno</servlet-name>
+        <servlet-class>cadastroAluno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pesquisaAluno</servlet-name>
+        <servlet-class>pesquisaAluno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cadastrar</servlet-name>
+        <servlet-class>severlets.cadastro</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cadastroAluno</servlet-name>
+        <url-pattern>/cadastroAluno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pesquisaAluno</servlet-name>
+        <url-pattern>/pesquisaAluno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cadastrar</servlet-name>
+        <url-pattern>/cadastrar</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
