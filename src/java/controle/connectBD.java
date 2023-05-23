@@ -23,7 +23,7 @@ import org.h2.tools.Server;
 
 public class connectBD {
 
-    private static final String url = "jdbc:h2:~/test";
+    private static final String url = "jdbc:h2:tcp://localhost/~/test";
     private static final String className = "org.h2.Driver";
     private static final String user = "sa";
     private static final String password = "password";
@@ -355,53 +355,4 @@ public class connectBD {
         return null;
     }
     
-    public void tearDown() {
-        
-        try {
-            clearDatabase();
-        } catch (SQLException ex) {
-            Logger.getLogger(connectBD.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(connectBD.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-
-    public void clearDatabase() throws SQLException, ClassNotFoundException {
-        Class.forName(className);
-        con = DriverManager.getConnection(url, user, password);
-        
-        Statement s = con.createStatement();
-
-        // Disable FK
-        s.execute("SET REFERENTIAL_INTEGRITY FALSE");
-
-        // Find all tables and truncate them
-        Set<String> tables = new HashSet<>();
-        ResultSet rs = s.executeQuery("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES  where TABLE_SCHEMA='PUBLIC'");
-        while (rs.next()) {
-            tables.add(rs.getString(1));
-        }
-        rs.close();
-        for (String table : tables) {
-            s.executeUpdate("TRUNCATE TABLE " + table);
-        }
-
-        // Idem for sequences
-        Set<String> sequences = new HashSet<>();
-        rs = s.executeQuery("SELECT SEQUENCE_NAME FROM INFORMATION_SCHEMA.SEQUENCES WHERE SEQUENCE_SCHEMA='PUBLIC'");
-        while (rs.next()) {
-            sequences.add(rs.getString(1));
-        }
-        rs.close();
-        for (String seq : sequences) {
-            s.executeUpdate("ALTER SEQUENCE " + seq + " RESTART WITH 1");
-        }
-
-        // Enable FK
-        s.execute("SET REFERENTIAL_INTEGRITY TRUE");
-        s.close();
-        con.close();
-    }
-
 }

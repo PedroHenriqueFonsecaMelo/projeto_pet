@@ -5,9 +5,10 @@
  */
 package severlets;
 
+import DAOS.usuarioDAO;
 import entidades.Usuario;
-import controle.connectBD;
 import java.io.IOException;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,8 +33,15 @@ public class cadastro extends HttpServlet {
             throws ServletException, IOException {
        
        
-       connectBD.CreateTableX(Usuario.class);
-       System.out.println(connectBD.mcolum("Select * from Usuario;"));
+       Map<String, String[]> aux = request.getParameterMap();
+
+       Usuario usu = new Usuario(aux);
+       
+       usuarioDAO usuDAO = new usuarioDAO();
+       usuDAO.incluir(usu);
+       
+       System.out.println(usu.toString());
+        
         
     }
 

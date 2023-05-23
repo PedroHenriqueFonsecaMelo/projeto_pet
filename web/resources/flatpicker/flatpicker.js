@@ -79,20 +79,6 @@ const renderCalendar = () => {
 };
 /*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 */
 document.querySelector(".prev").addEventListener("click", () => {
   date.setMonth(date.getMonth() - 1);
@@ -123,7 +109,7 @@ renderCalendar();
 
       dateDiff(toDate, mySubString,today);
 
-      console.log(mySubString);
+     
       
     });
 
@@ -139,7 +125,7 @@ renderCalendar();
 
       dateDiff(toDate, mySubString,today);
       
-      console.log(mySubString);
+     
       
     });
 
@@ -156,7 +142,7 @@ renderCalendar();
       
       dateDiff(toDate, mySubString, today);
       
-      console.log(mySubString);
+      
       
     });
 
@@ -165,13 +151,15 @@ renderCalendar();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     let str = "Sua modalidade e data dos serviços foi seleciodado, o valor total ficou em  ";
     document.getElementById("precoTotal").value = "";
-    console.log("today :" + today);
-    console.log("data :" + toDate);
+    
 
     if (diffDays >= 7) {
       let fixed = ((parseFloat(mySubString) * diffDays) / 7).toFixed(2);
       str += fixed;
       document.getElementById("precoTotal").value = str;
+      changeValueByName("total",fixed);
+      changeValueByName("data",toDate.toISOString().split('T')[0]);
+     
       
     } else {
       let fixed =(parseFloat(mySubString) * diffDays).toFixed(2);
@@ -179,5 +167,13 @@ renderCalendar();
       document.getElementById("precoTotal").value = str;
      
     }
+  }
+  function changeValueByName(name,value){
+      var els=document.getElementsByName(name);
+      for (var i=0;i<els.length;i++) {
+        els[i].value = value;
+        console.log(name);
+        console.log(value);
+      }
   }
 
