@@ -6,37 +6,77 @@
 package entidades;
 
 import java.io.Serializable;
-import java.util.Objects;
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Pedro Henrique
  */
 @Entity
-@Table(name = "Usuario")
+@Table(name = "USUARIO")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
+    @NamedQuery(name = "Usuario.findByIdusuario", query = "SELECT u FROM Usuario u WHERE u.idusuario = :idusuario"),
+    @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email"),
+    @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idUsuario;
-    
-    @Column(name= "email")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "IDUSUARIO")
+    private Integer idusuario;
+    @Column(name = "EMAIL")
     private String email;
-    
-    @Column(name = "senha")
+    @Column(name = "SENHA")
     private String senha;
 
     public Usuario() {
     }
 
+   
+    
+    public Usuario(Integer idusuario) {
+        this.idusuario = idusuario;
+    }
 
+    public Usuario(Map<String, String[]> aux) {
+        
+
+        for(Field f : this.getClass().getDeclaredFields()){
+           try {
+               if(aux.containsKey(f.getName())){
+                    f.set(this, Arrays.toString(aux.get(f.getName())));
+               }
+           } catch (IllegalArgumentException | IllegalAccessException ex) {
+               Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        }
+    }
+
+    public Integer getIdusuario() {
+        return idusuario;
+    }
+
+    public void setIdusuario(Integer idusuario) {
+        this.idusuario = idusuario;
+    }
 
     public String getEmail() {
         return email;
@@ -54,17 +94,30 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public long getIdUsuario() {
-        return idUsuario;
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idusuario != null ? idusuario.hashCode() : 0);
+        return hash;
     }
 
-    public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Usuario)) {
+            return false;
+        }
+        Usuario other = (Usuario) object;
+        if ((this.idusuario == null && other.idusuario != null) || (this.idusuario != null && !this.idusuario.equals(other.idusuario))) {
+            return false;
+        }
+        return true;
     }
-    
 
-
-
+    @Override
+    public String toString() {
+        return "Usuario{" + "idusuario=" + idusuario + ", email=" + email + ", senha=" + senha + '}';
+    }
 
    
     

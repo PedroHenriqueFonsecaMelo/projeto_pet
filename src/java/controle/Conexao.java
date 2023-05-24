@@ -20,7 +20,8 @@ public class Conexao {
     }
     public static EntityManagerFactory getConexao (){
         if((emf == null) || (!emf.isOpen())){
-            emf = Persistence.createEntityManagerFactory("WebApplication1PU");
+            emf = Persistence.createEntityManagerFactory("projeto_petPU");
+            System.out.println("emf" + emf);
         }
         return emf;
     }
