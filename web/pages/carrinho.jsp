@@ -42,7 +42,7 @@
                 <div class="d-inline-flex align-items-center">
                     <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
                     <div class="text-start">
-                        <h6 class="text-uppercase mb-1">EndereÃ§o</h6>
+                        <h6 class="text-uppercase mb-1">Endereço</h6>
                         <span>Rua Engenheiro Gualberto, 640, Centro, Mogi das Cruzes - SP, CEP: 08770-300</span>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                         <span id="total">R$: 0,00</span>
                     </footer>
                  </div>
-                 <form action="index.html">
+                 <form action="../index.html">
                       <button id="buttonCarrinho"><strong>Finalizar Compra</strong>   </button>
                  </form>
                 
@@ -158,13 +158,13 @@
                     </p>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Links RÃ¡pidos</h5>
+                    <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Links Rápidos</h5>
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-body mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
                         <a class="text-body mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Quem
                             somos</a>
                         <a class="text-body mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>ServiÃ§os</a>
+                                class="bi bi-arrow-right text-primary me-2"></i>Serviços</a>
                         <a class="text-body" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Fale
                             conosco</a>
                     </div>
@@ -176,7 +176,7 @@
                         <a class="text-body mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Quem
                             somos</a>
                         <a class="text-body mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>ServiÃ§os</a>
+                                class="bi bi-arrow-right text-primary me-2"></i>Serviços</a>
                         <a class="text-body" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Fale
                             conosco</a>
                     </div>
@@ -231,11 +231,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../resources/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    <script src="js/carrinho.js"></script>
+    <script src="../resources/js/main.js"></script>
+    <script src="../resources/js/carrinho.js"></script>
 </body>
 
 </html>
