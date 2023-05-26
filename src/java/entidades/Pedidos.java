@@ -52,7 +52,12 @@ public class Pedidos implements Serializable {
 
     public Pedidos() {
     }
-
+    public Pedidos(String desc, BigDecimal preco, Integer quantidade, String obs) {
+        this.desc = desc;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.obs = obs;
+    }
     public Pedidos(Integer idpedidos) {
         this.idpedidos = idpedidos;
     }

@@ -44,9 +44,15 @@ public class produtoDAO {
         
     }
 
-    public List<Usuario> listar() {
+  
+    public List<Produtos> listar() {
         initConnection();
         return em.createNamedQuery("Produtos.findAll").getResultList();
+    }
+    public List<Produtos> listar(String id) {
+        initConnection();
+
+        return em.createNamedQuery("Produtos.findByIdprodutos").setParameter("idprodutos", Integer.parseInt(id)).getResultList();
     }
     
     public void alterar(Produtos obj) throws Exception {

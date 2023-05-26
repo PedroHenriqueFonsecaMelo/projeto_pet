@@ -15,19 +15,19 @@
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="../resources/lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/lib/flaticon/font/flaticon.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="../resources/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="../resources/css/style.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/css/style.css" rel="stylesheet">
     
     <!--templates carrinho-->
-    <link href="../resources/css/styleCarrinho.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/css/styleCarrinho.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!--carrinho com produtos em javascript-->
@@ -77,6 +77,7 @@
     <main class>
         <div class="page-title col-md-4 p-1"> <strong>Seu Carrinho</strong></div>
         <div class="content">
+            
             <section>
                 <table>
                     <thead>
@@ -84,37 +85,13 @@
                             <th>Produto</th>
                             <th>Preço</th>
                             <th>Quantidade</th>
-                            <th>Total</th>
                             <th>Remover</th>
                         </tr>
                     </thead>
                     <tbody>
                         <div class="container-fluid py-md-1">
-                        <tr>
-                            <td>
-                                <div class="product">
-                                    <img src="https://picsum.photos/200/200" alt="">
-                                    <div class="info">
-                                        <div class="nome">Ração para Gatos</div>
-                                        <div class="categoria">categoria</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>R$: 147.99</td>
-                            <td>
-                                <div class="qtde">
-                                    <button i class="bx bx-minus"></button>
-                                    <span class="num">1</span>
-                                    <button i class="bx bx-plus"></button>
-                                </div>
-                            </td>
-                            <td>147.99</td>
-                            <td>
-                                <button class="remove"><i class='bx bx-x'></i></button>
-                            </td>
-                        </tr>
-                        
-                    </div>
+                          ${tabela}  
+                        </div>
                     </tbody>
                 </table>
             </section>
@@ -132,8 +109,11 @@
                         <span id="total">R$: 0,00</span>
                     </footer>
                  </div>
-                 <form action="../index.html">
-                      <button id="buttonCarrinho"><strong>Finalizar Compra</strong>   </button>
+                <form action="<%= request.getContextPath() %>/pedidos" method="post">
+                    ${variables}
+                        <button type="submit" id="buttonCarrinho">
+                            <strong>Finalizar Compra</strong>
+                        </button>
                  </form>
                 
                 </div>
@@ -231,11 +211,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../resources/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="../resources/js/main.js"></script>
-    <script src="../resources/js/carrinho.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/main.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/carrinho.js"></script>
 </body>
 
 </html>

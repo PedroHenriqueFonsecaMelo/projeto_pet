@@ -15,19 +15,19 @@
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="../resources/lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/lib/flaticon/font/flaticon.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="../resources/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="../resources/css/style.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/css/style.css" rel="stylesheet">
     
     <!--templates carrinho-->
-    <link href="../resources/css/styleCarrinho.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/css/styleCarrinho.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!--carrinho com produtos em javascript-->
@@ -42,7 +42,7 @@
                 <div class="d-inline-flex align-items-center">
                     <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
                     <div class="text-start">
-                        <h6 class="text-uppercase mb-1">Endere√ßo</h6>
+                        <h6 class="text-uppercase mb-1">EndereÁo</h6>
                         <span>Rua Engenheiro Gualberto, 640, Centro, Mogi das Cruzes - SP, CEP: 08770-300</span>
                     </div>
                 </div>
@@ -77,44 +77,21 @@
     <main class>
         <div class="page-title col-md-4 p-1"> <strong>Seu Carrinho</strong></div>
         <div class="content">
+            
             <section>
                 <table>
                     <thead>
                         <tr>
                             <th>Produto</th>
-                            <th>Pre√ßo</th>
+                            <th>PreÁo</th>
                             <th>Quantidade</th>
-                            <th>Total</th>
                             <th>Remover</th>
                         </tr>
                     </thead>
                     <tbody>
                         <div class="container-fluid py-md-1">
-                        <tr>
-                            <td>
-                                <div class="product">
-                                    <img src="https://picsum.photos/200/200" alt="">
-                                    <div class="info">
-                                        <div class="nome">Ra√ß√£o para Gatos</div>
-                                        <div class="categoria">categoria</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>R$: 147.99</td>
-                            <td>
-                                <div class="qtde">
-                                    <button i class="bx bx-minus"></button>
-                                    <span class="num">1</span>
-                                    <button i class="bx bx-plus"></button>
-                                </div>
-                            </td>
-                            <td>147.99</td>
-                            <td>
-                                <button class="remove"><i class='bx bx-x'></i></button>
-                            </td>
-                        </tr>
-                        
-                    </div>
+                          ${tabela}  
+                        </div>
                     </tbody>
                 </table>
             </section>
@@ -132,8 +109,11 @@
                         <span id="total">R$: 0,00</span>
                     </footer>
                  </div>
-                 <form action="index.html">
-                      <button id="buttonCarrinho"><strong>Finalizar Compra</strong>   </button>
+                <form action="<%= request.getContextPath() %>/pedidos" method="post">
+                    ${variables}
+                        <button type="submit" id="buttonCarrinho">
+                            <strong>Finalizar Compra</strong>
+                        </button>
                  </form>
                 
                 </div>
@@ -158,13 +138,13 @@
                     </p>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Links R√°pidos</h5>
+                    <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Links R·pidos</h5>
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-body mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
                         <a class="text-body mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Quem
                             somos</a>
                         <a class="text-body mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>Servi√ßos</a>
+                                class="bi bi-arrow-right text-primary me-2"></i>ServiÁos</a>
                         <a class="text-body" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Fale
                             conosco</a>
                     </div>
@@ -176,7 +156,7 @@
                         <a class="text-body mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Quem
                             somos</a>
                         <a class="text-body mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>Servi√ßos</a>
+                                class="bi bi-arrow-right text-primary me-2"></i>ServiÁos</a>
                         <a class="text-body" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Fale
                             conosco</a>
                     </div>
@@ -231,11 +211,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    <script src="js/carrinho.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/main.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/carrinho.js"></script>
 </body>
 
 </html>

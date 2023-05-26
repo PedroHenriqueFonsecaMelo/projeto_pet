@@ -33,7 +33,6 @@ public class usuarioDAO {
         initConnection();
         
         EntityTransaction tx = em.getTransaction();
-       System.out.println("em is " + em.isOpen());
         try {
            
             tx.begin();

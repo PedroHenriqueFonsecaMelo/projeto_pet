@@ -143,6 +143,7 @@ public class connectBD {
             case "Date":
                 return " " + name + " DATE ";
             case "float":
+            case "BigDecimal":
                 return " " + name + " NUMERIC(20, 2) ";
             case "ID":
                 return (" " + name + " INT PRIMARY KEY AUTO_INCREMENT ");

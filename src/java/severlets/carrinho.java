@@ -5,10 +5,9 @@
  */
 package severlets;
 
-import DAOS.usuarioDAO;
-import entidades.Usuario;
+import DAOS.produtoDAO;
+import entidades.Produtos;
 import java.io.IOException;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ import servicos.initCli;
  *
  * @author Pedro Henrique
  */
-public class cadastro extends HttpServlet {
+public class carrinho extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,20 +31,23 @@ public class cadastro extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-       
-       Map<String, String[]> aux = request.getParameterMap();
-
-       Usuario usu = new Usuario(aux);
-       
-       usuarioDAO usuDAO = new usuarioDAO();
-       usuDAO.incluir(usu);
-       
-       initCli.setCliId(usu.getIdusuario());
         
-       request.getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+        String id  = request.getParameter("produto");
+        produtoDAO prodao = new produtoDAO();
+        
+        initCli.clear();
+        
+        for(Produtos p : prodao.listar(id)){
+            initCli.addS(p);
+        }
+       
+       
+        
+        request.setAttribute("tabela",initCli.toTable());
+        request.setAttribute("variables",initCli.Vtable());
         
         
+        request.getRequestDispatcher("/PAGES/carrinho.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
