@@ -4,7 +4,7 @@ function logar(){
 
     if((usuario=="admin" && senha=="admin") && (usuario!= null || senha!=null)){
         alert('usuario logado');
-        location.href="carrinho.html";   
+        location.href="carrinho.jsp";   
     }
     else{
         alert('usuario ou senha incorreto!!')
