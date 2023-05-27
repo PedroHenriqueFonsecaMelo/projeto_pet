@@ -5,8 +5,14 @@
  */
 package severlets;
 
+import DAOS.pedidosDAO;
+import entidades.Pedidos;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,19 +35,46 @@ public class pedidos extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet pedidos</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet pedidos at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
+        //connectBD.CreateTableX(Pedidos.class);
+        Map<String, String[]> map = request.getParameterMap();
+        Map<String, String> mapaux = new HashMap<>();
+        ArrayList<Map<String, String>> mapList = new ArrayList<>();
+        pedidosDAO pedao = new pedidosDAO();
+        
+        int i = 1;
+        Pedidos ped = null;
+
+        for(Entry e : map.entrySet()){
+            String key = e.getKey().toString();
+            
+            String value = Arrays.toString(map.get(key));
+            
+            if(key.contains(String.valueOf(i))){
+                System.out.println("key.substring(0,key.length()-1) " + key.substring(0,key.length()-1));
+                mapaux.put(key.substring(0,key.length()-1), value);
+                
+                System.out.println("mapaux.entrySet() " + mapaux.entrySet());
+            }
+            if(mapaux.size()>=4){
+                mapList.add(mapaux);
+                 System.out.println("mapList " + mapList.get(0).entrySet());
+                 mapaux = new HashMap<>();
+                 System.out.println("mapList " + mapList.get(0).entrySet());
+                i++;
+            }
+            
+        } 
+        for(Map<String, String> aux : mapList){
+                
+            ped = new Pedidos(aux);
+            System.out.println(ped.toString());
+            pedao.incluir(ped);
+            mapaux.clear();
+            i++;
+        }  
+      
+        System.out.println(pedao.listar());
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

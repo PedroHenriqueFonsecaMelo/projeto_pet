@@ -1,11 +1,13 @@
 const removeProductButton= document.getElementsByClassName("remove-product-button")
-console.log(removeProductButton)
+console.log(removeProductButton);
 for (var i = 0; i< removeProductButton.length; i++){
 removeProductButton[i].addEventListener("click", function(event){
-    console.log(event.target)
-})
+    console.log(event.target);
+});
 }
-
+subtotal = document.getElementById("sutotal");
+    frete = document.getElementById("frete");
+    total =  document.getElementById("total");
 
 const plus = document.getElementsByClassName("bx-plus"),
 minus = document.getElementsByClassName("bx-minus"),
@@ -13,6 +15,7 @@ num = document.getElementsByClassName("num");
 
 
 for (let i = 0; i < plus.length; i++) {
+    newFunction(1,i+1);
     plus[i].addEventListener("click", (e)=>{
        
        let a = parseInt(num[i].innerHTML);

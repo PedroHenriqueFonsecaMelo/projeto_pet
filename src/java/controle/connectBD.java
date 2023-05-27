@@ -139,6 +139,7 @@ public class connectBD {
                 return " " + name + " VARCHAR(100) ";
             case "int":
             case "long":
+            case "Integer":
                 return " " + name + " INT ";
             case "Date":
                 return " " + name + " DATE ";

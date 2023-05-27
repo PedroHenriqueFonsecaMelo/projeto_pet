@@ -6,7 +6,13 @@
 package entidades;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,6 +63,40 @@ public class Pedidos implements Serializable {
         this.preco = preco;
         this.quantidade = quantidade;
         this.obs = obs;
+    }
+    public Pedidos( Map<String, String> aux) {
+        
+        System.out.println("aux.entrySet() " + aux.entrySet());
+        
+        for (Entry<String, String> entry : aux.entrySet()) {
+            String value = entry.getValue().substring(1,entry.getValue().length()-1);
+
+            Field field;
+            try {
+               
+                field = this.getClass().getDeclaredField(entry.getKey().toLowerCase());
+                
+                if (field != null) {
+                    switch (field.getType().getSimpleName()) {
+                        case "String":
+                            field.set(this, value);
+                            break;
+                        case "int":
+                        case "Integer":
+                            field.set(this, Integer.parseInt(value));
+                            break;
+                        case "float":
+                            field.set(this, Float.parseFloat(value));
+                        case "BigDecimal":
+                            field.set(this,BigDecimal.valueOf(Double.valueOf(value)));
+                        default:
+                            break;
+                    }
+                }
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
     public Pedidos(Integer idpedidos) {
         this.idpedidos = idpedidos;
@@ -124,7 +164,9 @@ public class Pedidos implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Pedidos[ idpedidos=" + idpedidos + " ]";
+        return "Pedidos{" + "idpedidos=" + idpedidos + ", desc=" + desc + ", preco=" + preco + ", quantidade=" + quantidade + ", obs=" + obs + '}';
     }
+
+   
     
 }

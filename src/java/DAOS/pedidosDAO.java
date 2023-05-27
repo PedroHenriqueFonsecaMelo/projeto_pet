@@ -11,6 +11,7 @@ import entidades.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 
 /**
  *
@@ -30,15 +31,22 @@ public class pedidosDAO {
     }
     
     public void incluir(Pedidos obj) {
+       initConnection();
+        
+        EntityTransaction tx = em.getTransaction();
         try {
-            em.getTransaction().begin();
+           
+            tx.begin();
             em.persist(obj);
-            em.getTransaction().commit();
+            tx.commit();
+            fechaEmf();
         } catch (RuntimeException e) {
-            em.getTransaction().rollback();
+            tx.rollback();
             throw e;
         } finally {
-            em.close();
+            if(em.isOpen()){
+                em.close();
+            }
             
         }
         
