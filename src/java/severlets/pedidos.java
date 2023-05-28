@@ -6,6 +6,7 @@
 package severlets;
 
 import DAOS.pedidosDAO;
+import controle.connectBD;
 import entidades.Pedidos;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.regex.Pattern;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,12 +40,14 @@ public class pedidos extends HttpServlet {
         
         //connectBD.CreateTableX(Pedidos.class);
         Map<String, String[]> map = request.getParameterMap();
+         System.out.println(" map.keySet() " + map.keySet());
         Map<String, String> mapaux = new HashMap<>();
         ArrayList<Map<String, String>> mapList = new ArrayList<>();
         pedidosDAO pedao = new pedidosDAO();
         
         int i = 1;
         Pedidos ped = null;
+        Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
         for(Entry e : map.entrySet()){
             String key = e.getKey().toString();
@@ -55,6 +59,10 @@ public class pedidos extends HttpServlet {
                 mapaux.put(key.substring(0,key.length()-1), value);
                 
                 System.out.println("mapaux.entrySet() " + mapaux.entrySet());
+            }
+            
+            if(!ifNumber(key)){
+                 mapaux.put(key, value);
             }
             if(mapaux.size()>=4){
                 mapList.add(mapaux);
@@ -76,6 +84,17 @@ public class pedidos extends HttpServlet {
       
         System.out.println(pedao.listar());
     }
+    
+    private boolean ifNumber(String s){
+      char[] chars = s.toCharArray();
+     
+      for(char c : chars){
+         if(Character.isDigit(c)){
+           return true;
+         }
+      }
+      return false;
+    } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

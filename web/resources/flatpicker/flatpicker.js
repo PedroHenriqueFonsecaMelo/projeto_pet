@@ -107,7 +107,7 @@ renderCalendar();
         str.lastIndexOf("<small")
       );
 
-      dateDiff(toDate, mySubString,today);
+    dateDiff(toDate, mySubString,today, str, 1);
 
      
       
@@ -123,7 +123,7 @@ renderCalendar();
         str.lastIndexOf("<small")
       );
 
-      dateDiff(toDate, mySubString,today);
+      dateDiff(toDate, mySubString,today, str, 2);
       
      
       
@@ -140,17 +140,18 @@ renderCalendar();
         str.lastIndexOf("<small")
       );
       
-      dateDiff(toDate, mySubString, today);
+     dateDiff(toDate, mySubString,today, str, 3);
       
       
       
     });
 
-  function dateDiff(toDate, mySubString, today) {
+  function dateDiff(toDate, mySubString, today, ogPrice, e) {
     const diffTime = Math.abs(today - toDate);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     let str = "Sua modalidade e data dos serviços foi seleciodado, o valor total ficou em  ";
     document.getElementById("precoTotal").value = "";
+    
     
 
     if (diffDays >= 7) {
@@ -159,8 +160,11 @@ renderCalendar();
       document.getElementById("precoTotal").value = str;
       changeValueByName("total",fixed);
       changeValueByName("data",toDate.toISOString().split('T')[0]);
-     
       
+      document.getElementById("desc"+ e).value = str;
+      document.getElementById("PRECO"+e).value = fixed;
+      document.getElementById("OBS"+e).value  = document.getElementById("dataCalendario").value;
+
     } else {
       let fixed =(parseFloat(mySubString) * diffDays).toFixed(2);
       str += fixed;
