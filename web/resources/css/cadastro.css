@@ -1,203 +1,173 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-*{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    font-family: 'poppins',sans-serif;
+    font-family: 'poppins', sans-serif;
 }
 
 /* */
-section{
+section {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    
     background: url('../img/about.jpg')no-repeat;
     background-position: center;
     background-size: cover;
 }
-table {
-     border-spacing: 5px 15px;
-}
-.form-box{
-    position: relative;
-    width: 800px;
-    height: 650px;
-    background: transparent;
-    border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.form-box-big{
-    position: relative;
-    width: 800px;
-    height: 650px;
-    background: #7ab73084;
-    border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-h1{
-    font-size:large;
-    color: #666;
-    text-align: center;font-size: 40px;
-}
-
-.tg-0lax{
-    position: relative;
-    margin: 30px 0;
-    width: 382px;
-    height: 100px;
-    border-bottom: 2px solid #666;
-}
-
-.tg-0lax label{
-    position: absolute;
-    top: 80%;
-    left: 5px;
-    transform: translateY(-5%);
-    color: #666;
-    font-size: 5em;
-    pointer-events: none;
-    transition: .5s;
-    font-size: 20px;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto', sans-serif;
 }
 
 
-.tg-0lax ion-icon{
-   
-    position: relative;
-    right: -340px;
-    color: #3b6610;
-    font-size: 2.8em;
-    top: 82px;
-    height: 65px;
+.card {
+    width: 400px;
+    height: 700px;
+    background-color: #7ab73084;
+    padding: 30px;
+    border-radius: 4%;
+    box-shadow: 3px 3px 1px 0px #00000070;
 }
 
-    
-input:focus ~ label,
-input:valid ~ label,
-input[type="email"]:invalid:not(:placeholder-shown) ~ label,
-input[type="email"]:valid ~ label,
-input[type="email"]:focus ~ label{
-    top: -2px;
-}
-
-
-
-.tg-0lax input {
-    position: relative;
-    top: 20px;
-    width: 100%;
-    height: 60px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 2.2em;
-    padding:0 20px 0 5px;
-    color: #666;
-}
-
-
-.inputbox ion-icon{
-    position: relative;
-    top: 20px;
-  
-    right: 8px;
-    color: #fff;
-    font-size: 1.2em;
-    top: 20px;
-}
-
-select {
-    background-color: transparent;
-    font-size: 2.2em;
-    border: none;
-    color: #666;
-    width: 100%;
-    height: 100%;
-}
-
-/* */
-.forget{
-    margin: -15px 0 15px ;
-    font-size: .9em;
-    color: #666;
-    display: flex;
-    justify-content: space-between;  
-}
-
-.forget label input{
-    margin-right: 3px;
-    
-}
-.forget label a{
-    color: #666;
-    text-decoration: none;
-}
-.forget label a:hover{
-    text-decoration: underline;
-}
-
-button{
-    display: block;
-    align-content:  end;
-    width: 20%;
-    height: 50px;
-    border-radius: 40px;
-    background: #fff;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-    
-}
-#cadastroButton {
-    position: relative;
-    /*top: 30px;*/
-    width: 310px;
-    height: 40px;
-    border-radius: 40px;
-    background: rgb(250, 250, 250);
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-    left: 210px;
-}
-.register{
-    font-size: .9em;
-    color: #666;
+h1 {
     text-align: center;
-    margin: 25px 0 10px;
-}
-.register p a{
-    text-decoration: none;
-    color: #666;
-    font-weight: 600;
-}
-.register p a:hover{
-    text-decoration: underline;
+    margin-bottom: 20px;
+    color: #272262;
+
 }
 
-option{
-    color: rgb(11, 11, 11);
+.lable-float select{
+    width: 100%;
+    padding: 5px 5px;
+    border: 0;
+    border-bottom: 2px solid #272262;
+    background-color: transparent;
+    outline: none;
+    font-size: 16px;
+    
 }
 
-button#cadastroButton {
+.lable-float input {
+    width: 100%;
+    padding: 5px 5px;
+    display: inline-block;
+    border: 0;
+    border-bottom: 2px solid #272262;
+    background-color: transparent;
+    outline: none;
+    min-width: 180px;
+    font-size: 16px;
+    transition: all .3s ease-out;
+    border-radius: 0;
+}
+
+.lable-float {
     position: relative;
-    top: 20px;
-    font-size: 22px;
-    color: #666;
+    padding-top: 13px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+
+.lable-float input:focus {
+    border-bottom: 3px solid #4038a0;
+
+}
+
+.lable-float label, {
+    color: #272262;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 13px;
+    transition: all .3s ease-out;
+}
+
+
+.lable-float input:focus+label,
+.lable-float input:valid+label {
+    font-size: 15px;
+    margin-top: 0;
+    color: #4038a0;
+}
+
+button {
+    background-color: transparent;
+    border-color: #272262;
+    color: #272262;
+    padding: 7px;
+    font-weight: bold;
+    font-size: 12pt;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .4s ease-out;
+}
+
+button:hover {
+    background-color: #272262;
+    color: #fff;
+
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+#icon {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    background: url(../img/olhoAberto.png);
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#icon.hide {
+    background: url(../img/olhoFechado.png);
+    background-size: cover;
+
+}
+
+#icon2 {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    background: url(../img/olhoAberto.png);
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#icon2.hide2 {
+    background: url(../img/olhoFechado.png);
+    background-size: cover;
+}
+
+#msgError {
+    text-align: center;
+    color: #ff0000;
+    background-color: #ffbbbb;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+}
+
+#msgSuccess {
+    text-align: center;
+    color: #00bb00;
+    background-color: #bbffbe;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
 }
