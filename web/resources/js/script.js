@@ -42,7 +42,7 @@ nome.addEventListener('keyup', () => {
 })
 
 telefone.addEventListener('keyup', () => {
-    if (telefone.value.length <= 11) {
+    if (telefone.value.length <= 10) {
         labelTelefone.setAttribute('style', 'color:red');
         labelTelefone.innerHTML = '*Digite o seu Telefone';
         telefone.setAttribute('style', 'border-color: red');
@@ -126,34 +126,19 @@ function showHidden2() {
 
 
 function cadastrar() {
-    if (validNome && validSobrenome && validTelefone && validSenha && validConfirmarSenha && validSexo) {
-        let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
+    if (validNome !== '' && validTelefone !== '' && validSenha !== '' && validConfirmarSenha !== '' && validSexo !== '') {
+    msgSuccess.setAttribute('style', 'display:block');
+    msgSuccess.innerHTML = '<strong>Cadastrando Usuário...</strong>';
+    msgError.setAttribute('style', 'display:none');
+    msgError.innerHTML = '';
 
-        listaUser.push({
-            nomeCad: nome.value,
-            sobrenomeCad: sobrenome.value,
-            telefoneCad: telefone.value,
-            passwordCad: password.value,
-            sexoCad: sexo.value,
+    // Redireciona para a página index.html
+    location.href = "index.html";
 
-        });
-        localStorage.setItem('listaUser', JSON.stringify(listaUser));
-
-        msgSuccess.setAttribute('style', 'display:block');
-        msgSuccess.innerHTML = '<strong> Cadastrando Usuario...</strong>';
-        msgError.setAttribute('style', 'display:none');
-        msgError.innerHTML = '';
-
-        //aqui voce coloca para onde vai a pagina
-        setTimeout(() => {
-         window.location.href = "price.html";
-        }, 5000);
-        
-    } else {
-        msgError.setAttribute('style', 'display:block');
-        msgError.innerHTML = '<strong> Preencha todos os campos corretamente antes de cadastrar</strong>';
-        msgSuccess.innerHTML = '';
-        msgSuccess.setAttribute('style', 'display:none');
-    }
-
+} else {
+    msgError.setAttribute('style', 'display:block');
+    msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>';
+    msgSuccess.innerHTML = '';
+    msgSuccess.setAttribute('style', 'display:none');
+}
 }
