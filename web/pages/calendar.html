@@ -137,10 +137,6 @@
                           </div>
                     </div>
                 </div>
-                
-
-
-
                 <div class="col-lg-3">
                     <div class="bg-light text-center pt-5 mt-lg-5">
                         <h2 class="text-uppercase">Basic</h2>
@@ -170,10 +166,11 @@
                                 <span>Cirurgias</span>
                                 <i class="bi bi-x fs-4 text-danger"></i>
                             </div>
-                            <form action="../carrinho" method="post">
-                                <input type="hidden" name="price" value="49">
-                                <input type="hidden" name="data" value="">
-                                <input type="hidden" name="total" value="">
+                            <form action="../pedidos" method="post">
+                                <input type="hidden" name="PRECO" id="PRECO1" value="49">
+                                <input type="hidden" name="QUANTIDADE" id="QUANTIDADE1" value="1">
+                                <input type="hidden" name="desc" id="desc1" value="">
+                                <input type="hidden" name="OBS" id="OBS1" value="">
                                 <button type="submit" class="btn btn-primary text-uppercase py-2 px-4 my-3">
                                     Order Now
                                 </button>

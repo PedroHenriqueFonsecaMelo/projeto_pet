@@ -26,8 +26,8 @@ section {
 
 
 .card {
-    width: 400px;
-    height: 600px;
+    width: 600px;
+    height: 550px;
     background-color: #7ab73084;
     padding: 30px;
     border-radius: 4%;
@@ -36,21 +36,11 @@ section {
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #272262;
 
 }
 
-.lable-float select{
-    width: 100%;
-    padding: 5px 5px;
-    border: 0;
-    border-bottom: 2px solid #272262;
-    background-color: transparent;
-    outline: none;
-    font-size: 16px;
-    
-}
 
 .lable-float input {
     width: 100%;
@@ -66,20 +56,13 @@ h1 {
     border-radius: 0;
 }
 
-.lable-float {
-    position: relative;
-    padding-top: 13px;
-    margin-top: 5%;
-    margin-bottom: 5%;
-
-}
 
 .lable-float input:focus {
     border-bottom: 3px solid #4038a0;
 
 }
 
-.lable-float label {
+.lable-float label, {
     color: #272262;
     pointer-events: none;
     position: absolute;
@@ -121,39 +104,6 @@ button:hover {
     justify-content: center;
 }
 
-#icon {
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    background: url(../img/olhoAberto.png);
-    background-size: cover;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-}
-
-#icon.hide {
-    background: url(../img/olhoFechado.png);
-    background-size: cover;
-
-}
-
-#icon2 {
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    background: url(../img/olhoAberto.png);
-    background-size: cover;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-}
-
-#icon2.hide2 {
-    background: url(../resources/img/olhoFechado.png);
-    background-size: cover;
-}
-
 #msgError {
     text-align: center;
     color: #ff0000;
@@ -171,3 +121,62 @@ button:hover {
     border-radius: 4px;
     display: none;
 }
+
+#listaRegistros{ display: none; }
+        #cadastroRegistro{
+            display: none;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        body[page=lista] #listaRegistros{ display: block; }
+        body[page=cadastro] #cadastroRegistro{ display: flex; }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th,
+        table td{
+            font-size: 17px;
+            padding: 10px 15px;
+            border: solid 1px #ccc;
+        }
+
+        button{
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #07a;
+            color: #fff;
+            margin: 3px;
+            padding: 10px 15px;
+        }
+        button.cinza{
+            background-color: #ccc;
+            color: #666;
+        }
+        button.vermelho{
+            background-color: #a00;
+        }
+        button:hover{
+            opacity: 0.8;
+        }
+
+        input{
+            border: solid 1px #ccc;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .label>div{
+            display: flex;
+        }
+        .label>div>input{
+            flex: 1;
+        }
