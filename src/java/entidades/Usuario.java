@@ -7,8 +7,10 @@ package entidades;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.Basic;
@@ -32,8 +34,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
     @NamedQuery(name = "Usuario.findByIdusuario", query = "SELECT u FROM Usuario u WHERE u.idusuario = :idusuario"),
-    @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email"),
-    @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha")})
+    @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha"),
+    @NamedQuery(name = "Usuario.findBySexo", query = "SELECT u FROM Usuario u WHERE u.sexo = :sexo"),
+    @NamedQuery(name = "Usuario.findByNome", query = "SELECT u FROM Usuario u WHERE u.nome = :nome"),
+    @NamedQuery(name = "Usuario.findBySenhaNome", query = "SELECT u FROM Usuario u WHERE u.nome = :nome AND u.senha = :senha")
+})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,10 +47,15 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "IDUSUARIO")
     private Integer idusuario;
-    @Column(name = "EMAIL")
-    private String email;
     @Column(name = "SENHA")
     private String senha;
+    @Column(name = "SEXO")
+    private String sexo;
+    @Column(name = "NOME")
+    private String nome;
+    @Column(name = "TELEFONE")
+    private String telefone;
+
 
     public Usuario() {
     }
@@ -56,17 +66,38 @@ public class Usuario implements Serializable {
         this.idusuario = idusuario;
     }
 
-    public Usuario(Map<String, String[]> aux) {
-        
+    
+    public Usuario(Map<String, String[]> entrada) {
+        for (Map.Entry<String, String[]> entry : entrada.entrySet()) {
+            String charentrada = Arrays.toString(entry.getValue());
+            
+            String value = charentrada.substring(1,charentrada.length()-1);
 
-        for(Field f : this.getClass().getDeclaredFields()){
-           try {
-               if(aux.containsKey(f.getName())){
-                    f.set(this, Arrays.toString(aux.get(f.getName())));
-               }
-           } catch (IllegalArgumentException | IllegalAccessException ex) {
-               Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-           }
+            Field field;
+            try {
+               
+                field = this.getClass().getDeclaredField(entry.getKey().toLowerCase());
+                
+                if (field != null) {
+                    switch (field.getType().getSimpleName()) {
+                        case "String":
+                            field.set(this, value);
+                            break;
+                        case "int":
+                        case "Integer":
+                            field.set(this, Integer.parseInt(value));
+                            break;
+                        case "float":
+                            field.set(this, Float.parseFloat(value));
+                        case "BigDecimal":
+                            field.set(this,BigDecimal.valueOf(Double.valueOf(value)));
+                        default:
+                            break;
+                    }
+                }
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -78,14 +109,6 @@ public class Usuario implements Serializable {
         this.idusuario = idusuario;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getSenha() {
         return senha;
     }
@@ -94,21 +117,66 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (idusuario != null ? idusuario.hashCode() : 0);
+        int hash = 3;
+        hash = 47 * hash + Objects.hashCode(this.idusuario);
+        hash = 47 * hash + Objects.hashCode(this.senha);
+        hash = 47 * hash + Objects.hashCode(this.sexo);
+        hash = 47 * hash + Objects.hashCode(this.nome);
+        hash = 47 * hash + Objects.hashCode(this.telefone);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuario)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Usuario other = (Usuario) object;
-        if ((this.idusuario == null && other.idusuario != null) || (this.idusuario != null && !this.idusuario.equals(other.idusuario))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (!Objects.equals(this.senha, other.senha)) {
+            return false;
+        }
+        if (!Objects.equals(this.sexo, other.sexo)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.telefone, other.telefone)) {
+            return false;
+        }
+        if (!Objects.equals(this.idusuario, other.idusuario)) {
             return false;
         }
         return true;
@@ -116,9 +184,16 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{" + "idusuario=" + idusuario + ", email=" + email + ", senha=" + senha + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Usuario{idusuario=").append(idusuario);
+
+        sb.append(", senha=").append(senha);
+        sb.append(", sexo=").append(sexo);
+        sb.append(", nome=").append(nome);
+        sb.append(", telefone=").append(telefone);
+        sb.append('}');
+        return sb.toString();
     }
 
-   
     
 }

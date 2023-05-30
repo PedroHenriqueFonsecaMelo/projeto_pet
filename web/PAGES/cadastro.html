@@ -106,26 +106,27 @@
         <!-- Navbar End -->
             <section class='conteiner'>
                 <div class='card'>
+                    <form action="../cadastrar" method="post">
                     <h1>Cadastrar</h1>
     
                     <div id="msgError"></div>
                     <div id="msgSuccess"></div>
     
                     <div class='lable-float'>
-                        <input type="text"
+                        <input type="text" name="nome"
                             id="nomeCompleto" placeholder="" required>
                         <label id="labelNomeCompleto" for="nome">Nome Completo</label>
                     </div>
     
                     
                     <div class='lable-float'>
-                        <input type="number"
+                        <input type="number" name="telefone"
                             id="telefone" placeholder="" required>
                         <label id="labeltelefone" for="telefone">Telefone</label>
                     </div>
 
                     <div class='lable-float'>
-                        <select name="sexo" id="Sexo" required>
+                        <select name="sexo" id="Sexo"  required>
                             <option value="">--</option>
                             <option value="M">Masculino</option>
                             <option value="F">Feminino</option>
@@ -135,7 +136,7 @@
                     </div>
     
                     <div class='lable-float'>
-                        <input type="password"
+                        <input type="password" name="senha"
                             id="password" placeholder="" required>
                         <label id="labelSenha" for="password">Senha</label>
                         <div id="icon" onclick="showHidden()"></div>
@@ -149,8 +150,9 @@
                     </div>
     
                     <div class='justify-center'>
-                        <button onclick="cadastrar()">Cadastrar</button>
+                        <button type="submit">Cadastrar</button>
                     </div>
+                    </form>
                 </div>
             </section>
      
