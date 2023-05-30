@@ -109,11 +109,17 @@
                         <span id="total">R$: 0,00</span>
                     </footer>
                  </div>
-                <form action="<%= request.getContextPath() %>/pedidos" method="post">
+                <form action="<%= request.getContextPath() %>/Pedidos" method="post">
                     ${variables}
                         <button type="submit" id="buttonCarrinho">
-                            <strong>Finalizar Compra</strong>
+                            <strong>Finalizar Compra </strong>
                         </button>
+                       
+                        
+                        
+                        <!--LINK TEMPORARIO!!!!-->
+                        <a href="../pages/ResumoCompra.jsp" class="nav-item nav-link">Resumo da compra</a>
+                        
                  </form>
                 
                 </div>
@@ -211,7 +217,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="<%= request.getContextPath() %>/resources/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="<%= request.getContextPath() %>../resources/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="<%= request.getContextPath() %>/resources/js/main.js"></script>
