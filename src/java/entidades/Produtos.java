@@ -6,7 +6,9 @@
 package entidades;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
+import java.util.Map;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,6 +47,38 @@ public class Produtos implements Serializable {
     private BigDecimal preco;
 
     public Produtos() {
+    }
+
+    public Produtos(Map<String, String> aux) {
+                for (Map.Entry<String, String> entry : aux.entrySet()) {
+            String value = entry.getValue().substring(1,entry.getValue().length()-1);
+
+            Field field;
+            try {
+               
+                field = this.getClass().getDeclaredField(entry.getKey().toLowerCase());
+                
+                if (field != null) {
+                    switch (field.getType().getSimpleName()) {
+                        case "String":
+                            field.set(this, value);
+                            break;
+                        case "int":
+                        case "Integer":
+                            field.set(this, Integer.parseInt(value));
+                            break;
+                        case "float":
+                            field.set(this, Float.parseFloat(value));
+                        case "BigDecimal":
+                            field.set(this,BigDecimal.valueOf(Double.valueOf(value)));
+                        default:
+                            break;
+                    }
+                }
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public Produtos(Integer idprodutos) {

@@ -5,22 +5,23 @@
  */
 package severlets;
 
-import DAOS.usuarioDAO;
-import controle.connectBD;
-import entidades.Usuario;
+import DAOS.produtoDAO;
+import entidades.Produtos;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import servicos.initCli;
 
 /**
  *
  * @author Pedro Henrique
  */
-public class cadastro extends HttpServlet {
+public class cadastro_produto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,19 +34,20 @@ public class cadastro extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-       connectBD.CreateTableX(Usuario.class);
-       Map<String, String[]> aux = request.getParameterMap();
-
-       Usuario usu = new Usuario(aux);
-       
-       usuarioDAO usuDAO = new usuarioDAO();
-       usuDAO.incluir(usu);
-       
-       initCli.setCliId(usu.getIdusuario());
+        Map<String, String[]> map = request.getParameterMap();
+        Map<String, String> mapaux = new HashMap<>();
         
-       request.getServletContext().getRequestDispatcher("/index.html").forward(request, response);
-        
+        for(Map.Entry e : map.entrySet()){
+            String key = e.getKey().toString();
+            
+            String value = Arrays.toString(map.get(key));
+            mapaux.put(key, value);
+ 
+        } 
+        Produtos ped = new Produtos(mapaux);
+        produtoDAO prod = new produtoDAO();
+        prod.incluir(ped);
+        request.getServletContext().getRequestDispatcher("/index.html").forward(request, response);
         
     }
 

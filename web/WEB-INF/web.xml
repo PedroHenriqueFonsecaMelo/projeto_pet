@@ -28,6 +28,10 @@
         <servlet-name>pedidos</servlet-name>
         <servlet-class>severlets.pedidos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>cadastro_produto</servlet-name>
+        <servlet-class>severlets.cadastro_produto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadastroAluno</servlet-name>
         <url-pattern>/cadastroAluno</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>pedidos</servlet-name>
         <url-pattern>/pedidos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cadastro_produto</servlet-name>
+        <url-pattern>/cadastro_produto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

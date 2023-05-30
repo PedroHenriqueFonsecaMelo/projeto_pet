@@ -63,10 +63,10 @@ function insertUsuario(nome, produto){
     listaRegistros.ultimoIdGerado = id;
     listaRegistros.usuarios.push({
         id, nome, produto
-    })
-    gravarBD()
-    desenhar()
-    vizualizar('lista')
+    });
+    gravarBD();
+    desenhar();
+    vizualizar('lista');s
 }
 
 function editUsuario(id, nome, produto){

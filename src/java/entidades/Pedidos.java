@@ -65,8 +65,7 @@ public class Pedidos implements Serializable {
         this.obs = obs;
     }
     public Pedidos( Map<String, String> aux) {
-        
-        System.out.println("aux.entrySet() " + aux.entrySet());
+       
         
         for (Entry<String, String> entry : aux.entrySet()) {
             String value = entry.getValue().substring(1,entry.getValue().length()-1);

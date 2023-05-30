@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/src/java/entidades/Produtos.java</file>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/src/java/severlets/cadastro.java</file>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/web/PAGES/cadastro.html</file>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/src/java/entidades/Usuario.java</file>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/src/java/severlets/cadastro_produto.java</file>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/src/java/DAOS/usuarioDAO.java</file>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/src/java/severlets/pedidos.java</file>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/web/PAGES/consulta.html</file>
+            <file>file:/C:/Users/Pedro%20Henrique/Documents/Fatec/les/pet-shop-website-template/projeto_pet/web/resources/js/script.js</file>
+        </group>
     </open-files>
 </project-private>
