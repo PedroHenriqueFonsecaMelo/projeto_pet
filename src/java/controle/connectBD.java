@@ -21,7 +21,7 @@ import org.eclipse.persistence.sessions.server.Server;
 
 public class connectBD {
 
-    private static final String url = "jdbc:h2:tcp://localhost/~/test;MODE=LEGACY";
+    private static final String url = "jdbc:h2:tcp://localhost/./database/test;mode=legacy";
     private static final String className = "org.h2.Driver";
     private static final String user = "sa";
     private static final String password = "password";
