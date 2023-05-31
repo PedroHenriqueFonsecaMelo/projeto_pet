@@ -4,7 +4,11 @@
     Author     : Mateus
 --%>
 
+
+<%@page import="entidades.Pedidos"%>
+<%@page import="Modelo.produtoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,24 +80,36 @@
     <header>
         <span> <strong>TOTAL DO PEDIDO</strong></span>
     </header>
-     <form action="CompraServlet" method="post">
-        <table>
-            <tr>
-                <th>Produto</th>
-                <th>Foto</th>
-                <th>Preço</th>
-                <th>Quantidade</th>
-            </tr>
-            <tr>
-                <td>Produto 1</td>
-                <td><img src="../resources/img/product-1.png" alt="Produto 1" width="100" height="100"></td>
-                <td>R$ 10.00</td>
-                <td><input type="number" name="quantidade1" value="0" min="0"></td>
-            </tr>
-            <!-- Repita as linhas acima para cada produto -->
+        <%
+                pedidosDAO pedido = new pedidosDAO();
+                List<Pedidos> Cadastrado = pedido.listar();
+        %>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID do Pedido</th>
+                    <th>Desconto</th>
+                    <th>Observação</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%
+                for(Pedidos pedido:Cadastrado){
+                %><tr>
+                    <td><%= pedido.getIdpedidos() %> </td>
+                    <td><%= pedido.getDesc()%></td>
+                    <td><%= pedido.getPreco()%></td>
+                    <td><%= pedido.getQuantidade()%></td>
+
+                </tr><%
+                
+                }
+                
+                %>
+            </tbody>
         </table>
-        <input type="submit" value="Comprar">
-    </form>
 
         
         <!-- Footer Start -->

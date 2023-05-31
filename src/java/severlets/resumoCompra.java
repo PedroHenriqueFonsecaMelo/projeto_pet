@@ -43,8 +43,7 @@ public class resumoCompra extends HttpServlet {
             String[] helloWorld = (String[]) as.getValue();
             System.out.println(Arrays.toString(helloWorld));
         }
-                
-                
+               
                 
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
@@ -63,24 +62,7 @@ public class resumoCompra extends HttpServlet {
         }
     }
     
-      private String toCarrinhoTable(String nome, String preco) {
-        StringBuilder str = new StringBuilder();
-
-        str.append(
-                "<tr><td><div class=\"product\"><imgsrc=\"https://picsum.photos/200/200\""
-                + "alt=\"\"><div class=\"info\"><div class=\"nome\">"
-                + nome);
-        str.append("</div><div class=\"categoria\">categoria</div></div></div></td><td>R$:");
-        str.append(preco);
-        str.append("</td><td><divclass=\"qtde\"><buttoniclass=\"bxbx-minus\">"
-                + "</button><span class=\"num\">1</span><button i class=\"bxbx-plus\">"
-                + "</button></div></td>"
-                + "<td>" +
-                str.append(preco)
-                + "</td><td><button class=\"remove\">"
-                + "<i class='bxbx-x'></i></button></td></tr>");
-        return str.toString();
-    }
+      
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
