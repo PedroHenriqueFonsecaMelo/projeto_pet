@@ -51,16 +51,16 @@ public class Usuario implements Serializable {
     private String senha;
     @Column(name = "SEXO")
     private String sexo;
-<<<<<<< HEAD
+
     @Column(name = "TELEFONE")
     private String telefone;
-=======
+ 
     @Column(name = "NOME")
     private String nome;
-    @Column(name = "TELEFONE")
-    private String telefone;
+   //@Column(name = "TELEFONE")
+    //private String telefone;
 
->>>>>>> 5d549e221bc0b10b579cb417f4b3726ab4bb333e
+    /*>>>>>>> 5d549e221bc0b10b579cb417f4b3726ab4bb333e*/
 
     public Usuario() {
     }
@@ -130,8 +130,7 @@ public class Usuario implements Serializable {
         this.sexo = sexo;
     }
 
-<<<<<<< HEAD
-=======
+
     public String getNome() {
         return nome;
     }
@@ -140,7 +139,7 @@ public class Usuario implements Serializable {
         this.nome = nome;
     }
 
->>>>>>> 5d549e221bc0b10b579cb417f4b3726ab4bb333e
+
     public String getTelefone() {
         return telefone;
     }

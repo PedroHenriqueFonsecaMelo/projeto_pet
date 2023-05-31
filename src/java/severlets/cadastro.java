@@ -33,13 +33,13 @@ public class cadastro extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< HEAD
+
        connectBD.CreateTableX(Usuario.class);
        
-=======
+
        
        connectBD.CreateTableX(Usuario.class);
->>>>>>> 5d549e221bc0b10b579cb417f4b3726ab4bb333e
+
        Map<String, String[]> aux = request.getParameterMap();
 
        Usuario usu = new Usuario(aux);
