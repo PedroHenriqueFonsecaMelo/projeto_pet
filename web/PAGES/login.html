@@ -83,7 +83,7 @@
     
 
     <!--inicio Login-->
-    <form class="col-md-4 p-4">
+    <form method="post" action="../login" class="col-md-4 p-4">
         <header>
             <div class="col -md-4 p-2">
                 <h1 class="display-4">Login</h1>
@@ -91,14 +91,16 @@
         </header>
 
         <!-- Email input -->
-        <br><div class="col-md-6 p-3">
-            <input type="text" id="usuario" class="form-label" /><br>
+        
+        <br>
+        <div class="col-md-6 p-3">
+            <input type="text" id="usuario" name="nome" class="form-label" /><br>
             <label class="form-label" for="form2Example1">Email ou Usuario</label>
         </div>
 
         <!-- Password input -->
         <div class="col-md-6 p-3">
-            <input type="password" id="senha" class="form-label" /><br>
+            <input type="password" name="senha" id="senha" class="form-label" /><br>
             <label class="form-label" for="form2Example2">Senha</label>
         </div>
 
@@ -119,7 +121,8 @@
         </div>
 
         <!-- Submit button -->
-        <br><button type="submit p-3" onclick="logar(); return false" class="btn btn-primary ">Logar</button>
+        <br><button type="submit" class="btn btn-primary ">Logar</button>
+        
     </form>
     <!--fim Login-->
 

@@ -6,9 +6,9 @@
 package severlets;
 
 import DAOS.usuarioDAO;
-import controle.connectBD;
 import entidades.Usuario;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +20,7 @@ import servicos.initCli;
  *
  * @author Pedro Henrique
  */
-public class cadastro extends HttpServlet {
+public class login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,25 +33,13 @@ public class cadastro extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< HEAD
-       connectBD.CreateTableX(Usuario.class);
-       
-=======
-       
-       connectBD.CreateTableX(Usuario.class);
->>>>>>> 5d549e221bc0b10b579cb417f4b3726ab4bb333e
+        
        Map<String, String[]> aux = request.getParameterMap();
-
-       Usuario usu = new Usuario(aux);
-       
        usuarioDAO usuDAO = new usuarioDAO();
-       usuDAO.incluir(usu);
-       
-       initCli.setCliId(usu.getIdusuario());
+       System.out.println(usuDAO.listar(aux));
+     
         
-       request.getRequestDispatcher("./index.html").forward(request, response);
-        
-        
+       request.getServletContext().getRequestDispatcher("/index.html").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

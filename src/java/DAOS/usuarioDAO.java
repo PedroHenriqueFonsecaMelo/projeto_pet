@@ -7,7 +7,10 @@ package DAOS;
 
 import controle.Conexao;
 import entidades.Usuario;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -54,6 +57,19 @@ public class usuarioDAO {
     public List<Usuario> listar() {
         initConnection();
         return em.createNamedQuery("Usuario.findAll").getResultList();
+    }
+    
+    public List<Usuario> listar(Map<String, String[]> aux) {
+        
+        initConnection();
+        String senha = Arrays.toString(aux.get("senha"));
+        String nome =  Arrays.toString(aux.get("nome"));
+       
+        List ListOfInterventions = em.createNamedQuery("Usuario.findBySenhaNome")
+            .setParameter("senha",senha)
+            .setParameter("nome",nome).getResultList();
+        
+        return ListOfInterventions;
     }
     
     public void alterar(Usuario obj) throws Exception {
