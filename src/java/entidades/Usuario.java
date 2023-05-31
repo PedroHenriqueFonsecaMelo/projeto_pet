@@ -46,6 +46,10 @@ public class Usuario implements Serializable {
     private String email;
     @Column(name = "SENHA")
     private String senha;
+    @Column(name = "SEXO")
+    private String sexo;
+    @Column(name = "TELEFONE")
+    private String telefone;
 
     public Usuario() {
     }
@@ -92,6 +96,22 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     @Override

@@ -6,6 +6,7 @@
 package severlets;
 
 import DAOS.usuarioDAO;
+import controle.connectBD;
 import entidades.Usuario;
 import java.io.IOException;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class cadastro extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+       connectBD.CreateTableX(Usuario.class);
        
        Map<String, String[]> aux = request.getParameterMap();
 
@@ -43,7 +44,7 @@ public class cadastro extends HttpServlet {
        
        initCli.setCliId(usu.getIdusuario());
         
-       request.getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+       request.getRequestDispatcher("./index.html").forward(request, response);
         
         
     }

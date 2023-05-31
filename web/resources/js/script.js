@@ -11,6 +11,10 @@ let telefone = document.getElementById('telefone');
 let labelTelefone = document.getElementById('labeltelefone');
 let validTelefone = false;
 
+let email = document.getElementById('email');
+let labelemail = document.getElementById('Labelemail');
+let validEmail = false; 
+
 let sexo = document.getElementById('Sexo');
 let labelsexo= document.getElementById('labelSexo');
 let validSexo = false;
@@ -55,6 +59,22 @@ telefone.addEventListener('keyup', () => {
     }
 })
 
+email.addEventListener('keyup', () => {
+    if (email.value.length <= 10) {
+        labelemail.setAttribute('style', 'color:red');
+        labelemail.innerHTML = '*Digite o seu E-mail';
+        email.setAttribute('style', 'border-color: red');
+        validEmail = false;
+    } else {
+        labelemail.setAttribute('style', 'color:green');
+        labelemail.innerHTML = 'Email';
+        email.setAttribute('style', 'border-color: green');
+        validEmail = true;
+    }
+
+})
+if (validNome !== '' && validEmail !== '' && validTelefone !== '' && validSenha !== '' && validConfirmarSenha !== '' && validSexo !== '') 
+
 sexo.addEventListener('change', () => {
     if (sexo.value === "") {
       labelSexo.style.color = 'red';
@@ -97,8 +117,6 @@ confirmarSenha.addEventListener('keyup', () => {
     }
 
 })
-
-
 
 function showHidden() {
     if (password1.type === 'password') {

@@ -28,6 +28,18 @@ body > header {
     
    
 }
+ a.nav-item{
+    border: 0;
+    padding: 15px 0;
+    color: #474646;
+    background: #7AB730;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
 
 body > main {
     background: #dcdada;

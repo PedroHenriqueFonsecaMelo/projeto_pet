@@ -95,8 +95,11 @@
                     </tbody>
                 </table>
             </section>
+                        
+             
+                        
             <aside>
-                <div class="container-fluid py-md-1"></div>
+                 <div class="container-fluid py-md-1"></div>
                  <div class="box">
                     <header>Resumo da Compra</header>
                     <div class="info">
@@ -109,19 +112,18 @@
                         <span id="total">R$: 0,00</span>
                     </footer>
                  </div>
+                <Toleft>
+                <a href="../pages/consulta.html" class="nav-item nav-link"><strong>Consultar Histórico<strong</a>
+                <a href="../pages/resumoCompra.jsp" class="nav-item nav-link">Emitir Fatura</a>
+                </Toleft>
                 <form action="<%= request.getContextPath() %>/Pedidos" method="post">
                     ${variables}
                         <button type="submit" id="buttonCarrinho">
                             <strong>Finalizar Compra </strong>
                         </button>
-                       
-                        
-                        
-                        <!--LINK TEMPORARIO!!!!-->
-                        <a href="../pages/ResumoCompra.jsp" class="nav-item nav-link">Resumo da compra</a>
                         
                  </form>
-                
+                         
                 </div>
             </aside>
         </div>
