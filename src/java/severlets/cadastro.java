@@ -20,7 +20,7 @@ import servicos.initCli;
  *
  * @author Pedro Henrique
  */
-public class cadastro extends HttpServlet {
+public class cadastro  extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

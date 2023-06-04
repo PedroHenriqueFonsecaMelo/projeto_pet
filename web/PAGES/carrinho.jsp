@@ -113,10 +113,10 @@
                     </footer>
                  </div>
                 <Toleft>
-                <a href="../pages/consulta.html" class="nav-item nav-link"><strong>Consultar Histórico<strong</a>
-                <a href="../pages/resumoCompra.jsp" class="nav-item nav-link">Emitir Fatura</a>
+               
+                <a href="./pages/resumoCompra.jsp" class="nav-item nav-link"><strong>Emitir Fatura</a><strong
                 </Toleft>
-                <form action="<%= request.getContextPath() %>/Pedidos" method="post">
+                <form action="<%= request.getContextPath() %>/pedidos" method="post">
                     ${variables}
                         <button type="submit" id="buttonCarrinho">
                             <strong>Finalizar Compra </strong>

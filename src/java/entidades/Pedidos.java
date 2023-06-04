@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Pedidos.findByDesc", query = "SELECT p FROM Pedidos p WHERE p.desc = :desc"),
     @NamedQuery(name = "Pedidos.findByPreco", query = "SELECT p FROM Pedidos p WHERE p.preco = :preco"),
     @NamedQuery(name = "Pedidos.findByQuantidade", query = "SELECT p FROM Pedidos p WHERE p.quantidade = :quantidade"),
+    @NamedQuery(name = "Pedidos.findByCLIID", query = "SELECT p FROM Pedidos p WHERE p.cliid = :cliid"),
     @NamedQuery(name = "Pedidos.findByObs", query = "SELECT p FROM Pedidos p WHERE p.obs = :obs")})
 public class Pedidos implements Serializable {
 
@@ -55,9 +56,12 @@ public class Pedidos implements Serializable {
     private Integer quantidade;
     @Column(name = "OBS")
     private String obs;
-
+    @Column(name = "CLIID")
+    private String cliid;
+    
     public Pedidos() {
     }
+    
     public Pedidos(String desc, BigDecimal preco, Integer quantidade, String obs) {
         this.desc = desc;
         this.preco = preco;
@@ -141,6 +145,13 @@ public class Pedidos implements Serializable {
     public void setObs(String obs) {
         this.obs = obs;
     }
+    public String getCliid() {
+        return cliid;
+    }
+
+    public void setCliid(String cliid) {
+        this.cliid = cliid;
+    }
 
     @Override
     public int hashCode() {
@@ -164,8 +175,19 @@ public class Pedidos implements Serializable {
 
     @Override
     public String toString() {
-        return "Pedidos{" + "idpedidos=" + idpedidos + ", desc=" + desc + ", preco=" + preco + ", quantidade=" + quantidade + ", obs=" + obs + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Pedidos{");
+        sb.append("idpedidos=").append(idpedidos);
+        sb.append(", desc=").append(desc);
+        sb.append(", preco=").append(preco);
+        sb.append(", quantidade=").append(quantidade);
+        sb.append(", obs=").append(obs);
+        sb.append(", cliid=").append(cliid);
+        sb.append('}');
+        return sb.toString();
     }
+
+    
 
    
     

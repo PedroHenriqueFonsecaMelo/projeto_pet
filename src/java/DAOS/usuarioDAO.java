@@ -64,7 +64,14 @@ public class usuarioDAO {
         initConnection();
         String senha = Arrays.toString(aux.get("senha"));
         String nome =  Arrays.toString(aux.get("nome"));
+       if(senha.contains("[") && senha.contains("]")){
+           senha = senha.substring(1, senha.length()-1);
+       }
+       if(nome.contains("[") && nome.contains("]")){
+           nome = nome.substring(1, nome.length()-1);
+       }
        
+       System.out.println("nome"+"senha"+nome+senha);
         List ListOfInterventions = em.createNamedQuery("Usuario.findBySenhaNome")
             .setParameter("senha",senha)
             .setParameter("nome",nome).getResultList();

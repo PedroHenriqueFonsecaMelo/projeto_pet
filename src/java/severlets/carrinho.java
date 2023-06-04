@@ -36,18 +36,22 @@ public class carrinho extends HttpServlet {
         produtoDAO prodao = new produtoDAO();
         
         initCli.clear();
-        
-        for(Produtos p : prodao.listar(id)){
-            initCli.addS(p);
+        if (id != null && id != "") {
+            for (Produtos p : prodao.listar(id)) {
+                initCli.addS(p);
+            }
+
+            request.setAttribute("tabela", initCli.toTable());
+            request.setAttribute("variables", initCli.Vtable());
+
+            request.getRequestDispatcher("/pages/carrinho.jsp").forward(request, response);
         }
-       
-       
+        else{
+            request.getRequestDispatcher("./index.html").forward(request, response);
         
-        request.setAttribute("tabela",initCli.toTable());
-        request.setAttribute("variables",initCli.Vtable());
+        }
         
         
-        request.getRequestDispatcher("/PAGES/carrinho.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

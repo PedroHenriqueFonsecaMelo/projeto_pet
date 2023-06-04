@@ -45,6 +45,16 @@ public class Produtos implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "PRECO")
     private BigDecimal preco;
+    @Column(name = "IMG")
+    private String img;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public Produtos() {
     }

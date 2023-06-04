@@ -57,15 +57,13 @@ public class Usuario implements Serializable {
  
     @Column(name = "NOME")
     private String nome;
-   //@Column(name = "TELEFONE")
-    //private String telefone;
-
-    /*>>>>>>> 5d549e221bc0b10b579cb417f4b3726ab4bb333e*/
-
+    
+    @Column(name = "EMAIL")
+    private String email;
+   
     public Usuario() {
     }
 
-   
     
     public Usuario(Integer idusuario) {
         this.idusuario = idusuario;
@@ -104,6 +102,14 @@ public class Usuario implements Serializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Integer getIdusuario() {

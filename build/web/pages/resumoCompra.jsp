@@ -5,8 +5,12 @@
 --%>
 
 
+<%@page import="java.math.BigDecimal"%>
+<%@page import="DAOS.pedidosDAO"%>
 <%@page import="entidades.Pedidos"%>
-<%@page import="Modelo.produtoDAO"%>
+<%@page import="DAOS.produtoDAO"%>
+<%@page import="servicos.initCli"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
@@ -36,7 +40,7 @@
         <link href="<%= request.getContextPath()%>/resources/css/style.css" rel="stylesheet">
 
         <!--templates carrinho-->
-        <link href="<%= request.getContextPath()%>/resources/css/styleCarrinho.css" rel="stylesheet">
+        <link href="<%= request.getContextPath()%>/resources/css/StyleresumoCompra.css" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
         <!--carrinho com produtos em javascript-->
@@ -76,40 +80,58 @@
             </div>
         </div>
         <!-- Topbar End -->
-        
-    <header>
-        <span> <strong>TOTAL DO PEDIDO</strong></span>
+      
+        <header>
+        <span> <strong>RESUMO DA COMPRA</strong></span>
     </header>
-        <%
+         <%
                 pedidosDAO pedido = new pedidosDAO();
-                List<Pedidos> Cadastrado = pedido.listar();
+                List<Pedidos> Cadastrado = pedido.listar(initCli.getCliId());
         %>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID do Pedido</th>
-                    <th>Desconto</th>
-                    <th>Observação</th>
-                    <th>Preço</th>
-                    <th>Quantidade</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                for(Pedidos pedido:Cadastrado){
+    <main class>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID do Pedido</th>
+                        <th>Descrição</th>
+                        <th>Observação</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <div class="container-fluid py-md-1">
+                
+                    <%
+                float total = 0;
+                for(Pedidos pedido2:Cadastrado){
+                
+                total = total + pedido2.getPreco().floatValue();
                 %><tr>
-                    <td><%= pedido.getIdpedidos() %> </td>
-                    <td><%= pedido.getDesc()%></td>
-                    <td><%= pedido.getPreco()%></td>
-                    <td><%= pedido.getQuantidade()%></td>
+                    <td><%= pedido2.getIdpedidos() %> </td>
+                    <td><%= pedido2.getDesc()%></td>
+                    <td><%= pedido2.getObs()%></td>
+                    
+                    <td><%= pedido2.getPreco()%></td>
+                    <td><%= pedido2.getQuantidade()%></td>
 
                 </tr><%
                 
-                }
-                
-                %>
-            </tbody>
-        </table>
+                }%>
+                </div>
+                <tr>
+                    <td colspan="5">
+                        <strong>Total da compra R$: <%=total%>
+                    </td>
+                        </strong>
+                </tr>
+                </tbody>
+            </table>
+            
+    </div>
+    
+    </main>
+       
 
         
         <!-- Footer Start -->

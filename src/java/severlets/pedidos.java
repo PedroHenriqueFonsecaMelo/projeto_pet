@@ -19,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servicos.initCli;
 
 /**
  *
@@ -76,13 +77,15 @@ public class pedidos extends HttpServlet {
         for(Map<String, String> aux : mapList){
                 
             ped = new Pedidos(aux);
-            System.out.println(ped.toString());
+            ped.setCliid((String.valueOf(initCli.getCliId())));
             pedao.incluir(ped);
             mapaux.clear();
             i++;
         }  
       
-        System.out.println(pedao.listar());
+        System.out.println(ped.toString());
+
+        request.getServletContext().getRequestDispatcher("/index.html").forward(request, response);
     }
     
     private boolean ifNumber(String s){

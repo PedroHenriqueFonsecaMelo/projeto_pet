@@ -89,7 +89,7 @@
             <div class="navbar-nav ms-auto py-0">
                 <a href="product.html" class="nav-item nav-link">Produtos</a>
                 <a href="service.html" class="nav-item nav-link">Serviços</a>
-                <a href="login.html" class="nav-item nav-link">Pedidos</a>
+                <a href="login.html" class="nav-item nav-link">Login</a>
                 
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">A Empresa</a>
@@ -207,8 +207,16 @@
                                 <span>Cirurgias</span>
                                 <i class="bi bi-x fs-4 text-danger"></i>
                             </div>
-                            <a href="carrinho.html" class="btn btn-primary text-uppercase py-2 px-4 my-3">Order Now</a>
-                        </div>
+                             <form action="../pedidos" method="post">
+                                <input type="hidden" name="PRECO" id="PRECO2" value="99">
+                                <input type="hidden" name="QUANTIDADE" id="QUANTIDADE2" value="2">
+                                <input type="hidden" name="desc" id="desc2" value="">
+                                <input type="hidden" name="OBS" id="OBS2" value="">
+                                <button type="submit" class="btn btn-primary text-uppercase py-2 px-4 my-3">
+                                    Order Now
+                                </button>
+                            </form>
+                          </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -238,7 +246,15 @@
                                 <span>Cirurgias</span>
                                 <i class="bi bi-check2 fs-4 text-primary"></i>
                             </div>
-                            <a href="carrinho.html" class="btn btn-primary text-uppercase py-2 px-4 my-3">Order Now</a>
+                             <form action="../pedidos" method="post">
+                                <input type="hidden" name="PRECO" id="PRECO1" value="149">
+                                <input type="hidden" name="QUANTIDADE" id="QUANTIDADE3" value="3">
+                                <input type="hidden" name="desc" id="desc3" value="">
+                                <input type="hidden" name="OBS" id="OBS3" value="">
+                                <button type="submit" class="btn btn-primary text-uppercase py-2 px-4 my-3">
+                                    Order Now
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

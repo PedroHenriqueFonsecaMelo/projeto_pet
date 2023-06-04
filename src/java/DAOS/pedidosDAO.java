@@ -57,6 +57,11 @@ public class pedidosDAO {
         return em.createNamedQuery("Pedidos.findAll").getResultList();
     }
     
+    public List<Pedidos> listar(int id) {
+        initConnection();
+        return em.createNamedQuery("Pedidos.findByCLIID").setParameter("cliid", String.valueOf(id)).getResultList();
+    }
+    
     public void alterar(Pedidos obj) throws Exception {
         
         try {

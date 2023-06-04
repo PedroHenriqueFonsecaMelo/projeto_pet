@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Pedro Henrique
  */
 public class initCli {
-    private static int id;
+    private static int id=0;
     private static ArrayList<Produtos> s = new ArrayList<>();
     
     public static void setCliId(Integer idusuario) {
@@ -39,7 +39,7 @@ public class initCli {
             str.append("<tr>\n" +
 "                            <td>\n" +
 "                                <div class=\"product\">\n" +
-"                                    <img src=\"https://picsum.photos/200/200\" alt=\"\">\n" +
+"                                    <img src=\""+p.getImg()+"\" alt=\"\"width=\"200\" height=\"200\">\n" +
 "                                    <div class=\"info\">\n" +
 "                                        <div class=\"nome\">"+p.getDesc()+"</div>\n" +
 "                                        <div class=\"categoria\">categoria</div>\n" +
@@ -55,7 +55,7 @@ public class initCli {
 "                                </div>\n" +
 "                            </td>\n" +
 "                            <td>\n" +
-"                                <button  type=\"button\" class=\"remove\"><i class='bx bx-x'></i></button>\n" +
+"                                <a href=\"./addproduto\" class=\"remove\"><i class='bx bx-x'></i></a>\n" +
 "                            </td>\n" +
 "                        </tr>");
         }

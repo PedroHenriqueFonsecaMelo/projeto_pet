@@ -4,6 +4,8 @@
  */
 package severlets;
 
+import DAOS.produtoDAO;
+import entidades.Produtos;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -16,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servicos.initCli;
 
 /**
  *
@@ -35,14 +38,16 @@ public class resumoCompra extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Map<String, Integer> produtosSelecionados = new HashMap<>();
-        Set<Entry<String, String[]>> aux = request.getParameterMap().entrySet();
         
-        for (Map.Entry as : aux) {
-            System.out.println(as.getKey());
-            String[] helloWorld = (String[]) as.getValue();
-            System.out.println(Arrays.toString(helloWorld));
+        String id  = request.getParameter("produto");
+        produtoDAO prodao = new produtoDAO();
+        
+        initCli.clear();
+        
+        for(Produtos p : prodao.listar(id)){
+            initCli.addS(p);
         }
+       
                
                 
         response.setContentType("text/html;charset=UTF-8");
@@ -56,7 +61,8 @@ public class resumoCompra extends HttpServlet {
             out.println("<body>");
             out.println("Olá mundo!!");
             //request.getRequestDispatcher("/PAGES/resumoCompra.jsp").forward(request, response);
-            out.println("<h1>Servlet resumoCompra at " + request.getContextPath() + "</h1>");
+            //request.getRequestDispatcher("/PAGES/resumoCompra.jsp").forward(request, response);
+            //.responserequest.getContextPath("/PAGES/resumoCompra.jsp");
             out.println("</body>");
             out.println("</html>");
         }

@@ -1,3 +1,5 @@
+/* global labelSexo */
+
 const password1 = document.getElementById('password');
 const icon = document.getElementById('icon');
 const confirmPassword1 = document.getElementById('confirmPassword');
@@ -31,7 +33,7 @@ let msgError = document.getElementById('msgError');
 let msgSuccess = document.getElementById('msgSuccess');
 
 nome.addEventListener('keyup', () => {
-    if (nome.value.length <= 10) {
+    if (nome.value.length <= 1 ||nome===" ")&&(nome==="") {
         labelNome.setAttribute('style', 'color:red');
         labelNome.innerHTML = '*Digite o seu Nome';
         nome.setAttribute('style', 'border-color: red');
@@ -43,7 +45,7 @@ nome.addEventListener('keyup', () => {
         validNome = true;
     }
 
-})
+});
 
 telefone.addEventListener('keyup', () => {
     if (telefone.value.length <= 10) {
@@ -57,7 +59,7 @@ telefone.addEventListener('keyup', () => {
         telefone.setAttribute('style', 'border-color: green');
         validTelefone= true;
     }
-})
+});
 
 email.addEventListener('keyup', () => {
     if (email.value.length <= 10) {
@@ -72,7 +74,7 @@ email.addEventListener('keyup', () => {
         validEmail = true;
     }
 
-})
+});
 if (validNome !== '' && validEmail !== '' && validTelefone !== '' && validSenha !== '' && validConfirmarSenha !== '' && validSexo !== '') 
 
 sexo.addEventListener('change', () => {
@@ -101,7 +103,7 @@ password.addEventListener('keyup', () => {
         password.setAttribute('style', 'border-color: green');
         validSenha = true;
     }
-})
+});
 
 confirmarSenha.addEventListener('keyup', () => {
     if (password.value != confirmarSenha.value) {
@@ -116,7 +118,7 @@ confirmarSenha.addEventListener('keyup', () => {
         validConfirmarSenha = true;
     }
 
-})
+});
 
 function showHidden() {
     if (password1.type === 'password') {

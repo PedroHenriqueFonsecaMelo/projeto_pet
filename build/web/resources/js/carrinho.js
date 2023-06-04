@@ -63,7 +63,7 @@ function newFunction(a,e) {
     frete.innerText = "Valor R$: " + (parseFloat(td3)*(2/100)).toFixed(2);
     total.innerText = "Valor R$: " + (parseFloat(subtotal.innerHTML.substring(9))+parseFloat(frete.innerHTML.substring(9))).toFixed(2);
 
-    document.getElementById("desc" + e).value = frete.innerHTML;
+    document.getElementById("desc" + e).value = "o frete da sua compra é "+frete.innerHTML;
     document.getElementById("PRECO" + e).value = (parseFloat(subtotal.innerHTML.substring(9))+parseFloat(frete.innerHTML.substring(9))).toFixed(2);
     document.getElementById("QUANTIDADE"+ e).value = a;
     document.getElementById("OBS"+ e).value  = nomes[e-1].innerHTML;
